@@ -6,4 +6,4 @@
     <title>testing</title>
 </head>
 <body>
-<?php include 'nav.php';?>
+<?php include __DIR__ . '/nav.php';?>

@@ -3,9 +3,9 @@ namespace App\Controllers;
 
 class PublicController{
     public function home(){
-        echo 'home page';
+        view('home');
     }
     public function about(){
-        echo 'about';
+        view('about');
     }
 }
