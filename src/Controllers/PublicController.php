@@ -10,4 +10,11 @@ class PublicController{
     public function about(){
         view('about');
     }
+    public function test(){
+        view('form');
+        var_dump($_POST);
+    }
+    public function testAnswer(){
+        var_dump($_POST);
+    }
 }

@@ -3,14 +3,16 @@ namespace App;
 class Router {
     public static $routes = [];
     public $path;
+    public $method;
 
-    public function __construct($path) {
-        $this->path = $path;
+    public function __construct($path, $method) {
+        $this->path = parse_url($path, PHP_URL_PATH);
+        $this->method = $method;
     }
 
     public function match(){
         foreach(self::$routes as $route){
-            if($route['path'] === $this->path){
+            if(strtolower($route['path']) === strtolower($this->path) && $this->method === $route['method']){
                 return $route;
             }
         }
@@ -18,10 +20,11 @@ class Router {
     }
 
     
-    public static function addRoute($path, $action,){
+    public static function addRoute($method ,$path, $action,){
         self::$routes[] = [
+            'method' => $method,
             'path' => $path,
             'action' => $action
-            ];
+        ];
     }
 }
