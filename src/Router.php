@@ -27,4 +27,12 @@ class Router {
             'action' => $action
         ];
     }
+
+    public static function get($path, $action){
+        self::addRoute('GET', $path, $action);
+    }
+
+    public static function post($path, $action){
+        self::addRoute('POST', $path, $action);
+    }
 }

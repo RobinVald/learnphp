@@ -1,8 +1,8 @@
 <?php
 use App\Router;
 use App\Controllers\PublicController;
-Router::addRoute('GET', '/', [PublicController::class, 'home']);
+Router::get('/', [PublicController::class, 'home']);
 
-Router::addRoute('GET','/about', [PublicController::class, 'about']);
-Router::addRoute('GET','/test', [PublicController::class, 'test']);
-Router::addRoute('POST','/test', [PublicController::class, 'testanswer']);
+Router::get('/about', [PublicController::class, 'about']);
+Router::get('/test', [PublicController::class, 'test']);
+Router::post('/test', [PublicController::class, 'testanswer']);
