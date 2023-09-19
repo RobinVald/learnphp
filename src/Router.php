@@ -1,5 +1,6 @@
 <?php
 namespace App;
+
 class Router {
     public static $routes = [];
     public $path;
@@ -19,20 +20,19 @@ class Router {
         return false;
     }
 
-    
-    public static function addRoute($method ,$path, $action,){
+    public static function addRoute($method, $path, $action){
         self::$routes[] = [
             'method' => $method,
             'path' => $path,
             'action' => $action
-        ];
+        ]; 
     }
 
-    public static function get($path, $action){
+    public static function get($path, $action) {
         self::addRoute('GET', $path, $action);
     }
 
-    public static function post($path, $action){
+    public static function post($path, $action) {
         self::addRoute('POST', $path, $action);
     }
 }
