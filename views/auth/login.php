@@ -3,6 +3,13 @@
     <h1 class="is-size-2">Login</h1>
 </div>
 
+<?php if(isset($_SESSION['error'])): ?>
+<div class="notification is-danger">
+<?=$_SESSION['error'] ?? ''?>
+</div>
+<?php endif; ?>
+
+
 <form action="/login" method="POST">
 <div class="field">
   <label class="label" for="email">Email</label>
