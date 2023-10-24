@@ -1,43 +1,45 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Models\User;
 
 class AuthController {
-    public function register(){
-        if($_POST['password'] == $_POST['password_confirm']){
+    public function register() {
+        if($_POST['password'] == $_POST['password_confirm']) {
             $user = new User();
-            $user->email = $_POST['email'];
-            $user->password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $user->save();
-            header('location: /login');
-        } else{
-            $_SESSION['error'] = 'passwords dont match';
-            header('location: /register');
+            $user -> email = $_POST['email'];
+            $user -> password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $user -> save();
+            header('Location: /login');
+        } else {
+            $_SESSION['error'] = 'Password does not match';
+            header('Location: /register');
         }
     }
-    public function registerForm(){
+    public function registerForm() {
         view('auth/register');
         unset($_SESSION['error']);
     }
-    public function login(){
+    public function login() {
         $user = User::where('email', $_POST['email']);
         $user = $user[0] ?? null;
         if($user && password_verify($_POST['password'], $user->password)){
             $_SESSION['user'] = $user->id;
-            header('location: /');
-            } else {
-                $_SESSION['error'] = 'wrong email or password';
-                header('location: /login');
-            }
+            header('Location: /');
+        } else {
+            $_SESSION['error'] = 'Password or email is incorrect';
+            header('Location: /login');
+            echo 'login failed!';
         }
-    public function loginForm(){
+    }
+    public function loginForm() {
         view('auth/login');
         unset($_SESSION['error']);
     }
-
-    public function logout(){
+    public function logout() {
         unset($_SESSION['user']);
-        header('location: /');
+        header('Location: /');
     }
+
 }

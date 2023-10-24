@@ -1,4 +1,5 @@
 <?php
+
 use App\Models\User;
 
 function view($viewName, $vars = []){
@@ -9,3 +10,7 @@ function view($viewName, $vars = []){
 function auth(){
     return User::auth();
 }
+
+/*
+* @method dd(string)
+*/

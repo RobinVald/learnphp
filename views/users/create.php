@@ -1,13 +1,8 @@
 <?php include __DIR__ . '/../partials/header.php' ?>
     <div class="container">
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="notification is-danger">
-                <?=$_SESSION['error'] ?? ''?>
-            </div>
-        <?php endif; ?>
-        <h1 class="is-size-1">Login</h1>        
+        <h1 class="is-size-2">New User</h1>        
 
-        <form action="/login" method="POST">
+        <form action="/admin/users/new" method="POST">
         <div class="field">
             <label class="label" for="email">Email</label>
                 <div class="control">
@@ -22,7 +17,7 @@
         </div>
         <div class="field">
                 <div class="control">
-                    <input class="button is-primary" type="submit" placeholder="Login">
+                    <input class="button is-primary" type="submit" placeholder="Add new User">
                 </div>
         </div>
         </form>

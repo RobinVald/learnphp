@@ -1,7 +1,8 @@
-<?php include __DIR__ . '/partials/header.php'; ?>
+<?php include 'partials/header.php' ?>
     <form action="/test" method="POST">
         <input type="text" placeholder="Name" name="name">
         <input type="number" placeholder="Age" name="age">
-        <input type="submit" value="Saada">
+        <input type="submit" value="Submit">
     </form>
-<?php include __DIR__ .  '/partials/footer.php'; ?>
+<?php include 'partials/footer.php' ?>
+

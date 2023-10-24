@@ -7,23 +7,23 @@
                         Id
                     </th>
                     <td>
-                        <?=$article->id?>
+                        <?=$user->id?>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        Title
+                        Email
                     </th>
                     <td>
-                        <?=$article->title?>
+                        <?=$user->email?>
                     </td>
                 </tr>
                 <tr>
                     <th>
-                        Content
+                        Hashed Password
                     </th>
                     <td>
-                        <?=$article->body?>
+                        <?=$user->password?>
                     </td>
                 </tr>
             </tbody>

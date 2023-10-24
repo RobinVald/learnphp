@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;
 
-class Article extends Model {
+class Article extends Model{
     public static $table = 'articles';
     public $id;
     public $title;

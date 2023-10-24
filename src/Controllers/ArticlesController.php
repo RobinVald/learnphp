@@ -2,37 +2,37 @@
 
 namespace App\Controllers;
 
+use App\DB;
 use App\Models\Article;
+use App\Models\User;
 
 class ArticlesController {
     public function index(){
         $articles = Article::all();
-            view('articles/index', compact('articles'));
+        view('articles/index', compact('articles'));
     }
     public function create(){
         view('articles/create');
     }
 
     public function store(){
+        var_dump($_POST);
         $article = new Article();
-        $article->title = $_POST['title'];
-        $article->body = $_POST['body'];
-        $article->save();
+        $article -> title = $_POST['title'];
+        $article -> body = $_POST['body'];
+        $article -> save();
         header('Location: /admin/articles');
     }
-
     public function show(){
         $id = $_GET['id'];
         $article = Article::find($id);
         view('articles/view', compact('article'));
     }
-
     public function edit(){
         $id = $_GET['id'];
         $article = Article::find($id);
         view('articles/edit', compact('article'));
     }
-
     public function update(){
         $id = $_GET['id'];
         $article = Article::find($id);

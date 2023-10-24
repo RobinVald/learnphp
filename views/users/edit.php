@@ -1,28 +1,23 @@
 <?php include __DIR__ . '/../partials/header.php' ?>
     <div class="container">
-        <?php if (isset($_SESSION['error'])) : ?>
-            <div class="notification is-danger">
-                <?=$_SESSION['error'] ?? ''?>
-            </div>
-        <?php endif; ?>
-        <h1 class="is-size-1">Login</h1>        
+        <h1 class="is-size-2">Edit User</h1>        
 
-        <form action="/login" method="POST">
+        <form action="/admin/users/edit?id=<?=$user->id?>" method="POST">
         <div class="field">
             <label class="label" for="email">Email</label>
                 <div class="control">
-                    <input class="input" type="text" placeholder="Email" name="email" id="email">
+                    <input class="input" type="text" placeholder="Email" name="email" id="email" value="<?=$user->email?>">
                 </div>
         </div>
         <div class="field">
             <label class="label" for="password">Password</label>
                 <div class="control">
-                    <input class="input" name="password" id="password" type="password">
+                    <input class="input" placeholder="Password" name="password" id="password"/>
                 </div>
         </div>
         <div class="field">
                 <div class="control">
-                    <input class="button is-primary" type="submit" placeholder="Login">
+                    <input class="button is-primary" type="submit" placeholder="Text input">
                 </div>
         </div>
         </form>

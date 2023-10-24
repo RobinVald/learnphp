@@ -2,21 +2,23 @@
 
 namespace App\Controllers;
 
+use App\DB;
 use App\Models\Article;
+use App\Models\User;
 
 class PublicController {
-    public function home(){
+    public function home() {
         $articles = Article::all();
+        //dd($articles);
         view('home', compact('articles'));
     }
-    public function about(){
+    public function about() {
         view('about');
     }
-    public function test(){
+    public function test() {
         session_start();
-        //setcookie('mycookie', 'tasty', time() + 60*60*24*30, '', '', false, true);
+        //setcookie('my_cookie', 'tasty', time() + 60 * 60 * 24 * 30, '', '', false, true);
         //var_dump($_COOKIE);
-        $_SESSION['id'] = 123;
         var_dump($_SESSION);
     }
     public function testAnswer(){
